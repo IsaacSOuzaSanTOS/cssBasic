@@ -1,0 +1,107 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #87ceeb; /* Céu azul claro */
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* Container geral */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Céu */
+.ceu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.ceu img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sol */
+.sol {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 400px;
+  z-index: 2;
+}
+
+.sol img {
+  width: 100%;
+  height: auto;
+}
+
+/* Terra */
+.terra {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 1;
+}
+
+.terra img {
+  width: 1000%;
+  height: 1000%;
+  object-fit: cover;
+}
+
+.corredor {
+  position: absolute;
+  bottom: 150px; /* altura da terra */
+  width: 480px;
+  animation: correr 4s linear infinite alternate;
+  z-index: 3;
+  transform: scaleX(-1); /* inverte a div inteira com o corredor */
+}
+
+.corredor img {
+  width: 100%;
+  height: auto;
+}
+
+
+
+@keyframes correr {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100% - 360px); /* ajuste para largura do corredor */
+  }
+}
+
+
+
+/* Legendas */
+.ceu p,
+.terra p,
+.sol p,
+.corredor p {
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
